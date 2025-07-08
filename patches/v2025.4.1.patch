@@ -91,7 +91,7 @@ index 471d89be1c..110a55538b 100644
     loading state here for process reloading. -->
    <div class="tw-p-8 tw-flex">
 -    <img class="new-logo-themed" alt="Bitwarden" />
-+    <img class="new-logo-themed" alt="Vaultwarden" />
++    <img class="new-logo-themed" alt="STEK" />
      <div class="spinner-container tw-justify-center">
        <i
          class="bwi bwi-spinner bwi-spin bwi-3x tw-text-muted"
@@ -105,7 +105,7 @@ index 55e2595e0f..b3d4e1530d 100644
            case "showToast":
 +            if (typeof message.text === "string" && typeof crypto.subtle === "undefined") {
 +              message.title = "This browser requires HTTPS to use the web vault";
-+              message.text = "Check the Vaultwarden wiki for details on how to enable it";
++              message.text = "Check the STEK wiki for details on how to enable it";
 +            }
              this.toastService._showToast(message);
              break;
@@ -129,12 +129,12 @@ index 030805ed3e..65ee9932db 100644
        element: document.getElementById("qr"),
        value:
 -        "otpauth://totp/Bitwarden:" +
-+        "otpauth://totp/Vaultwarden:" +
++        "otpauth://totp/STEK:" +
          Utils.encodeRFC3986URIComponent(email) +
          "?secret=" +
          encodeURIComponent(this.key) +
 -        "&issuer=Bitwarden",
-+        "&issuer=Vaultwarden",
++        "&issuer=STEK",
        size: 160,
      });
    }
@@ -345,7 +345,7 @@ index ff0aea47b9..21ec31a19a 100644
          this.currentUrl = event.url;
  
 -        let title = i18nService.t("bitWebVault");
-+        let title = "Vaultwarden Web";
++        let title = "STEK Web";
  
          if (this.currentUrl.includes("/sm/")) {
            title = i18nService.t("bitSecretsManager");
@@ -380,13 +380,13 @@ index d19af54f5d..03c8edf631 100644
    <environment-selector></environment-selector>
  
 -  <div bitTypography="body2">&copy; {{ year }} Bitwarden Inc.</div>
-+  <div bitTypography="body2">Vaultwarden Web</div>
++  <div bitTypography="body2">STEK Web</div>
    <div bitTypography="body2">{{ version }}</div>
 +  <br />
 +  <div bitTypography="helper" id="vw-disclaimer">
-+    A modified version of the Bitwarden&reg; Web Vault for Vaultwarden (an unofficial rewrite of the
++    A modified version of the Bitwarden&reg; Web Vault for STEK (an unofficial rewrite of the
 +    Bitwarden&reg; server).<br />
-+    Vaultwarden is not associated with the Bitwarden&reg; project nor Bitwarden Inc.
++    STEK is not associated with the Bitwarden&reg; project nor Bitwarden Inc.
 +  </div>
  </footer>
 diff --git a/apps/web/src/app/layouts/header/web-header.component.html b/apps/web/src/app/layouts/header/web-header.component.html
@@ -400,7 +400,7 @@ index 4b0da4ae56..eebc79db0d 100644
 -              <a bitMenuItem href="https://bitwarden.com/help/" target="_blank" rel="noreferrer">
 +              <a
 +                bitMenuItem
-+                href="https://github.com/dani-garcia/vaultwarden"
++                href="https://stekautomotive.com"
 +                target="_blank"
 +                rel="noreferrer"
 +              >
@@ -558,7 +558,7 @@ index 0b8ea86491..5d98411f46 100644
      <meta name="theme-color" content="#175DDC" />
  
 -    <title page-title>Bitwarden Web vault</title>
-+    <title page-title>Vaultwarden Web</title>
++    <title page-title>STEK Web</title>
  
      <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png" />
      <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png" />
@@ -573,7 +573,7 @@ index 0b8ea86491..5d98411f46 100644
        <!-- Note: any changes to this html need to be made in the app.component.html as well -->
        <div class="tw-p-8 tw-flex">
 -        <img class="new-logo-themed" alt="Bitwarden" />
-+        <img class="new-logo-themed" alt="Vaultwarden" />
++        <img class="new-logo-themed" alt="STEK" />
          <div class="spinner-container tw-justify-center">
            <i
              class="bwi bwi-spinner bwi-spin bwi-3x tw-text-muted"
@@ -584,7 +584,7 @@ index 92a1204c60..d9ff4771a3 100644
 @@ -1,5 +1,5 @@
  {
 -  "name": "Bitwarden Vault",
-+  "name": "Vaultwarden Web",
++  "name": "STEK Web",
    "icons": [
      {
        "src": "images/icons/android-chrome-192x192.png",
@@ -726,13 +726,13 @@ index 1e16dba82c..fe3d9b9ebe 100644
      </ng-container>
      <ng-container *ngIf="!hideYearAndVersion">
 -      <div bitTypography="body2">&copy; {{ year }} Bitwarden Inc.</div>
-+      <div bitTypography="body2">Vaultwarden Web</div>
++      <div bitTypography="body2">STEK Web</div>
        <div bitTypography="body2">{{ version }}</div>
 +      <br />
 +      <div bitTypography="helper" id="vw-disclaimer">
-+        A modified version of the Bitwarden&reg; Web Vault for Vaultwarden (an unofficial rewrite of
++        A modified version of the Bitwarden&reg; Web Vault for STEK (an unofficial rewrite of
 +        the Bitwarden&reg; server).<br />
-+        Vaultwarden is not associated with the Bitwarden&reg; project nor Bitwarden Inc.
++        STEK is not associated with the Bitwarden&reg; project nor Bitwarden Inc.
 +      </div>
      </ng-container>
    </footer>
